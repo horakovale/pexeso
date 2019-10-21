@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="${'css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <title>Hráči</title>
+
+</head>
+<body>
+
+    <h1>Největší přeborníci</h1>
+
+    <table class="hraci">
+
+        <tbody>
+            <tr>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Email</th>
+                <th>Počet vyhraných trunajů</th>
+                <th>Počet turnajů celkem</th>
+                <th>Procento úspěšnosti</th>
+            </tr>
+
+            <!--/*@thymesVar id="seznamHracu" type="java.util.List<cz.czechitas.webapp.Hrac>"*/-->
+            <tr th:each="jedenHrac : ${seznamHracu}">
+                <td th:text="${jedenHrac.jmeno}"> Lenka</td>
+                <td th:text="${jedenHrac.prijmeni}">Horáková</td>
+                <td th:text="${jedenHrac.email}">lenda.hor@gmail.com</td>
+                <td th:text="${jedenHrac.pocetVyhranychTurnaju}">30</td>
+                <td th:text="${jedenHrac.pocetTurnajuCelkem}">60</td>
+                <td th:text="${jedenHrac.uspesnost + '%'}">50%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
